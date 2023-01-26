@@ -1,3 +1,6 @@
+import re
+
+
 class Number:
     def __init__(self, value: int):
         self.value = value
@@ -9,7 +12,7 @@ class Number:
 
         returns: int
         """
-        pass
+        return self.value
 
     def is_odd(self):
         """
@@ -18,7 +21,7 @@ class Number:
         returns: bool
 
         """
-        pass
+        return self.value % 2 !=0
 
     def is_even(self):
         """
@@ -26,7 +29,7 @@ class Number:
 
         returns: bool
         """
-        pass
+        return self.value % 2 ==0
 
     def is_prime(self):
         """
@@ -34,7 +37,12 @@ class Number:
 
         returns: bool
         """
-        pass
+        p = self.value
+        c = 0
+        for i in range(2, p // 2 + 1):
+            if p % 2 == 0:
+                c += 1
+        return c == 0
 
     def get_divisors(self):
         """
@@ -42,7 +50,8 @@ class Number:
 
         returns: list
         """
-        pass
+        n = self.value
+        return [d for d in range(2, n // 2 +1) if not n % d]
 
     def get_length(self):
         """
@@ -50,7 +59,7 @@ class Number:
 
         returns: int
         """
-        pass
+        return len(str(self.value))
 
     def get_sum(self):
         """
@@ -58,7 +67,12 @@ class Number:
 
         returns: int
         """
-        pass
+        p = str(self.value)
+        sum = 0
+        for i in p:
+            sum += int(i)
+        return sum
+
 
     def get_reverse(self):
         """
@@ -66,7 +80,8 @@ class Number:
 
         returns: int
         """
-        pass
+        p = str(self.value)
+        return int(p[::-1])
 
     def is_palindrome(self):
         """
@@ -74,7 +89,12 @@ class Number:
 
         returns: bool
         """
-        pass
+        p = str(self.value)
+        l = len(p)
+        if l % 2:
+            return p[:l//2] == p[:l//2:-1]
+        else:
+            return p[:l//2] == p[:l//2-1:-1]
 
     def get_digits(self):
         """
@@ -82,7 +102,8 @@ class Number:
 
         returns: list
         """
-        pass
+        p = str(self.value)
+        return [int(i) for i in p]
 
     def get_max(self):
         """
@@ -90,7 +111,12 @@ class Number:
 
         returns: int
         """
-        pass
+        p = str(self.value)
+        m = 0
+        for i in p:
+            if m <= int(i):
+                m = int(i)
+        return m
 
     def get_min(self):
         """
@@ -98,7 +124,12 @@ class Number:
 
         returns: int
         """
-        pass
+        p = str(self.value)
+        m = 0
+        for i in p:
+            if m >= int(i):
+                m = int(i)
+        return m
 
     def get_average(self):
         """
@@ -106,7 +137,11 @@ class Number:
 
         returns: float
         """
-        pass
+        p = str(self.value)
+        sum = 0
+        for i in p:
+            sum += int(i)
+        return sum / len(p)
 
     def get_median(self):
         """
@@ -114,7 +149,13 @@ class Number:
 
         returns: float
         """
-        pass
+        med = 0
+        p = list(str(self.value))
+        l = len(p)
+        if l % 2:
+            return float(p[l // 2])
+        else:
+            return (int(p[l//2-1])+int(p[l//2]))/2        
 
     def get_range(self):
         """
@@ -122,7 +163,7 @@ class Number:
 
         returns: list
         """
-        pass
+        
 
     def get_frequency(self):
         """
@@ -130,7 +171,9 @@ class Number:
 
         returns: dict
         """
-        pass
+        s = str(self.value)
+        l = [int(i) for i in s]
+        return {i:l[i] for i in range(1,len(l))}
     
 
 # Create a new instance of Number
