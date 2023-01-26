@@ -51,7 +51,7 @@ class Number:
         returns: list
         """
         n = self.value
-        return [d for d in range(1, n) if not n % d]
+        return [d for d in range(1, n+1) if not n % d]
 
     def get_length(self):
         """
