@@ -163,7 +163,9 @@ class Number:
 
         returns: list
         """
-        
+        s = str(self.value)
+        d = [int(i) for i in s]
+        return max(d) - min(d)
 
     def get_frequency(self):
         """
@@ -172,9 +174,23 @@ class Number:
         returns: dict
         """
         s = str(self.value)
-        l = [int(i) for i in s]
-        return {i:l[i] for i in range(1,len(l))}
+        lst = [int(i) for i in s]
+        lst.sort()
+        d = {}
+        itm = 0
+        i = 1
+        for k in lst:
+            if itm == k:
+                i += 1
+                d[k] = i                
+            else:
+                itm = k
+                i = 1
+                d[k] = i
+
+        return d#{i:l[i] for i in range(0,len(l))}
     
 
 # Create a new instance of Number
-number = Number(3)
+number = Number(1159199455)
+print(number.get_frequency())
