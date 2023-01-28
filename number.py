@@ -158,7 +158,7 @@ class Number:
         if l % 2:
             return float(p[l // 2])
         else:
-            return (int(p[l//2-1])+int(p[l//2]))/2        
+            return (int(p[l//2])+int(p[l//2+1]))/2        
 
     def get_range(self):
         """
