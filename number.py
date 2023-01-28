@@ -39,10 +39,13 @@ class Number:
         """
         p = self.value
         c = 0
-        for i in range(2, p - 1):
-            if not p % 2:
-                c += 1
-        return c == 0
+        if p > 1:            
+            for i in range(2, p - 1):
+                if (not p % i) and p > 1:
+                    c += 1
+            return c == 0
+        else:
+            return False
 
     def get_divisors(self):
         """
@@ -125,7 +128,7 @@ class Number:
         returns: int
         """
         p = str(self.value)
-        m = 0
+        m = 10
         for i in p:
             if m >= int(i):
                 m = int(i)
@@ -165,7 +168,7 @@ class Number:
         """
         s = str(self.value)
         d = [int(i) for i in s]
-        return max(d) - min(d)
+        return [min(d), max(d)]
 
     def get_frequency(self):
         """
@@ -192,5 +195,5 @@ class Number:
     
 
 # Create a new instance of Number
-number = Number(10059000)
-print(number.get_median())
+number = Number(4)
+print(number.is_prime())
