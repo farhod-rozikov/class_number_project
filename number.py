@@ -39,8 +39,8 @@ class Number:
         """
         p = self.value
         c = 0
-        for i in range(2, p // 2 + 1):
-            if p % 2 == 0:
+        for i in range(2, p - 1):
+            if not p % 2:
                 c += 1
         return c == 0
 
@@ -150,7 +150,7 @@ class Number:
         returns: float
         """
         med = 0
-        p = list(str(self.value))
+        p = [int(i) for i in str(self.value)]
         l = len(p)
         if l % 2:
             return float(p[l // 2])
@@ -177,7 +177,7 @@ class Number:
         lst = [int(i) for i in s]
         lst.sort()
         d = {}
-        itm = 0
+        itm = -1
         i = 1
         for k in lst:
             if itm == k:
@@ -192,5 +192,5 @@ class Number:
     
 
 # Create a new instance of Number
-number = Number(1159199455)
-print(number.get_frequency())
+number = Number(10059000)
+print(number.get_median())
